@@ -47,7 +47,8 @@ func testZip(content []byte, size int64, password string) bool {
 
 func main() {
 	if len(os.Args) != 2 {
-		log.Fatalf("usage: %s <.zip>", os.Args[0])
+		fmt.Fprintf(os.Stderr, "Usage: %s <.zip>\n", os.Args[0])
+		os.Exit(1)
 	}
 	zipFile := os.Args[1]
 	f, err := os.Open(zipFile)
